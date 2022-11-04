@@ -41,11 +41,26 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("This is notnot") // Should return true
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
-    public Boolean containsEqualNumberOfIsAndNot(String input){
+    public Boolean containsEqualNumberOfIsAndNot(String input) {
+        int stringIs = 0;
+        int stringNot = 0;
 
 
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (input.charAt(i) == 'i' && input.charAt(i + 1) == 's') {
+                stringIs++;
+            }
 
-        return null;
+        }
+        for (int i = 0; i < input.length() - 2; i++) {
+            if (input.charAt(i) == 'n' && input.charAt(i + 1) == 'o' && input.charAt(i + 2) == 't') {
+                stringNot++;
+            }
+
+            if (stringIs == stringNot) {
+                return true;
+            }
+        }  return false;
     }
 
     /**
@@ -56,7 +71,14 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        for ( int i = 1; i < input.length(); i++) {
+            if (input.charAt(i) == 'g') {
+                if(input.charAt(i) == input.charAt(i - 1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
